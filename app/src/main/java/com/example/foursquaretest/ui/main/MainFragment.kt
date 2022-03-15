@@ -1,15 +1,11 @@
 package com.example.foursquaretest.ui.main
 
-import android.opengl.Visibility
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.lifecycle.lifecycleScope
 import com.example.foursquaretest.R
@@ -60,7 +56,6 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
 
         binding.tiQuery.textChanges().debounce(800).onEach {
             if(!it.isNullOrEmpty()){
-                Log.e("searching",it.toString())
                 viewModel.searchPlaces(it.toString()).observe(viewLifecycleOwner){ response ->
                     when (response.status){
                         Status.SUCCESS -> {
@@ -95,11 +90,5 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
             }
         }.launchIn(lifecycleScope)
     }
-
-
-
-
-
-
 
 }
