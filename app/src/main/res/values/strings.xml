@@ -1,8 +1,20 @@
 <resources>
     <string name="app_name">Foursquare Test</string>
+    <string name="favorites">Favorites</string>
+    <string name="added_to_favorites">Added to favorites</string>
+    <string name="delete">Delete</string>
     <string name="search">Search for places…</string>
     <string name="nothing_found">Nothing found, try another search…</string>
-    <string name="something_went_wrong">Something went wrong, try again</string>
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="you_need_to_enable_gps">You need to enable GPS</string>
+    <string name="try_again">Try again</string>
+    <string name="enable_gps">Enable GPS</string>
     <string name="distance_m_placeholder">%1$s m</string>
     <string name="distance_km_placeholder">%1$s km</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="tab_text_1">List</string>
+    <string name="tab_text_2">Map</string>
+    <string name="tab_text_3">Favorites</string>
+
+    <string name="place">Place: </string>
 </resources>

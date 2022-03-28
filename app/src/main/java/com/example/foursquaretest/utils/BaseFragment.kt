@@ -36,26 +36,5 @@ abstract class BaseFragment : Fragment {
         fragmentView = null
     }
 
-    override fun onViewCreated(view: View, @Nullable savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner,
-            object : OnBackPressedCallback(true) {
-                override fun handleOnBackPressed() {
-                    goBack()
-                }
-            })
-    }
-
-    private  fun goBack() {
-        val navHostFragment = this.parentFragment as NavHostFragment?
-        /**If navHostFragment has no fragment in stack that means you reach to the top most fragment on the stack and app exist popup should be shown here.Otherwise just simple pop the immediate fragment from backstack */
-        if (navHostFragment != null &&
-            navHostFragment.childFragmentManager.backStackEntryCount == 0) {
-            requireActivity().finish()
-        }
-        else NavHostFragment.findNavController(this).navigateUp()
-    }
-
-
 
 }

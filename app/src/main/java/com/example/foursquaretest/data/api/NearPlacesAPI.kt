@@ -5,5 +5,5 @@ import retrofit2.http.*
 
 interface NearPlacesAPI {
     @GET("nearby")
-    suspend fun getNearBySeattle(@Query ("query") query : String,@Query ("ll") latLong: String): NearbyResponse?
+    suspend fun getNearBySeattle(@Query ("ll") location: String,@Query("limit") limit : String): NearbyResponse?
 }

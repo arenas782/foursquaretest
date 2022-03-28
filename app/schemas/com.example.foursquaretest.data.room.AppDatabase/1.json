@@ -1,0 +1,88 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "24eb6a9bbbbe2c23b585bb76a00bb761",
+    "entities": [
+      {
+        "tableName": "Place",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`fsq_id` TEXT NOT NULL, `distance` REAL, `name` TEXT, `placeaddress` TEXT, `placeformatted_address` TEXT, `placelocality` TEXT, `placemainlatitude` REAL, `placemainlongitude` REAL, `placerooflatitude` REAL, `placerooflongitude` REAL, PRIMARY KEY(`fsq_id`))",
+        "fields": [
+          {
+            "fieldPath": "fsq_id",
+            "columnName": "fsq_id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "distance",
+            "columnName": "distance",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "location.address",
+            "columnName": "placeaddress",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "location.formatted_address",
+            "columnName": "placeformatted_address",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "location.locality",
+            "columnName": "placelocality",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "geocodes.main.latitude",
+            "columnName": "placemainlatitude",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "geocodes.main.longitude",
+            "columnName": "placemainlongitude",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "geocodes.roof.latitude",
+            "columnName": "placerooflatitude",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "geocodes.roof.longitude",
+            "columnName": "placerooflongitude",
+            "affinity": "REAL",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "fsq_id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '24eb6a9bbbbe2c23b585bb76a00bb761')"
+    ]
+  }
+}

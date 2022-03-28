@@ -2,8 +2,12 @@ package com.example.foursquaretest.di.modules
 
 
 import android.content.Context
+import androidx.room.Room
 import com.example.foursquaretest.BuildConfig
 import com.example.foursquaretest.data.api.NearPlacesAPI
+import com.example.foursquaretest.data.repository.NearPlacesRepository
+import com.example.foursquaretest.data.room.AppDatabase
+import com.example.foursquaretest.data.room.PlaceDao
 import com.example.foursquaretest.utils.APIInterceptor
 import com.example.foursquaretest.utils.Constants
 import com.squareup.moshi.Moshi
@@ -70,6 +74,30 @@ class AppModule {
     @Provides
     @Singleton
     fun provideNearPlacesAPI(retrofit: Retrofit): NearPlacesAPI = retrofit.create(NearPlacesAPI::class.java)
+
+
+    @Singleton
+    @Provides
+    fun provideAppDatabase(@ApplicationContext context : Context) : AppDatabase {
+        return Room.databaseBuilder(
+            context,
+            AppDatabase::class.java,
+            AppDatabase.DATABASE_NAME
+        ).fallbackToDestructiveMigration()
+            .build()
+    }
+
+    @Singleton
+    @Provides
+    fun providePlaceDao(appDatabase: AppDatabase) : PlaceDao{
+        return appDatabase.placeDao()
+    }
+
+    @Singleton
+    @Provides
+    fun provideNearPlacesRepository(placeDao: PlaceDao,nearPlacesAPI: NearPlacesAPI) : NearPlacesRepository{
+        return NearPlacesRepository(placeDao,nearPlacesAPI)
+    }
 
 
 }

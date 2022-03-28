@@ -2,6 +2,8 @@ package com.example.foursquaretest.utils
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.Context
+import android.content.pm.PackageManager
 import android.graphics.drawable.Drawable
 import android.os.Build
 import android.text.Editable
@@ -11,6 +13,7 @@ import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import androidx.annotation.RequiresApi
+import androidx.core.app.ActivityCompat
 import com.example.foursquaretest.App
 import com.example.foursquaretest.R
 import com.google.android.material.snackbar.Snackbar
@@ -66,5 +69,27 @@ object Commons {
     @SuppressLint("UseCompatLoadingForDrawables")
     fun getDrawable(drawable: Int): Drawable? = App.appContext.getDrawable(drawable)
 
+     fun isLocationPermissionGranted(activity: Activity,context: Context): Boolean {
+        return if (ActivityCompat.checkSelfPermission(
+                context,
+                android.Manifest.permission.ACCESS_COARSE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                context,
+                android.Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                activity,
+                arrayOf(
+                    android.Manifest.permission.ACCESS_FINE_LOCATION,
+                    android.Manifest.permission.ACCESS_COARSE_LOCATION
+                ),
+                100
+            )
+            false
+        } else {
+            true
+        }
+    }
 
 }

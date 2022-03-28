@@ -5,8 +5,17 @@
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.29375" />
         <entry key="app/src/main/res/drawable/progress_bar.xml" value="0.1005" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2671875" />
+        <entry key="app/src/main/res/layout/activity_favorite_detail.xml" value="0.14166666666666666" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/activity_main2.xml" value="0.11822916666666666" />
+        <entry key="app/src/main/res/layout/activity_place_detail.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_favorites.xml" value="0.2671875" />
+        <entry key="app/src/main/res/layout/fragment_list.xml" value="0.14166666666666666" />
         <entry key="app/src/main/res/layout/fragment_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_main2.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_map.xml" value="0.11822916666666666" />
+        <entry key="app/src/main/res/layout/fragment_place_detail.xml" value="0.12708333333333333" />
+        <entry key="app/src/main/res/layout/item_favourite.xml" value="0.2671875" />
         <entry key="app/src/main/res/layout/item_place.xml" value="0.335" />
       </map>
     </option>
